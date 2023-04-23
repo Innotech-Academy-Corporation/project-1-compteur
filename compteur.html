@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compteur de calories</title>
+    <meta charset="UTF-8" />
+    <style>
+        #categories li {
+            cursor: pointer;
+        }
+
+        #selection {
+            display: grid;
+            grid-template-columns: 500px auto;
+            grid-gap: 20px;
+        }
+
+        #select-ingredients {
+            margin-bottom: 15px;
+        }
+
+        button {
+            margin: 15px 30px 0 0;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid grey;
+            padding: 5px;
+        }
+
+        th:first-child, td:first-child {
+            width: 30%;
+        }
+
+        td:not(:first-child) {
+            text-align: center;
+        }
+
+        tr:last-child th {
+            background-color: #DDDDDD;
+        }
+
+        tr:last-child th:first-child {
+            background: none;
+            border: none;
+        }
+
+        #save {
+            display: none;
+        }
+
+    </style>
+
+    <script src="categories.js"></script>
+    <script src="ingredients.js"></script>
+    <script src="compteur.js"></script>
+
+</head>
+<body>
+<h1>Compteur de calories</h1>
+<div id="conteneur">
+    <form id="selection">
+        <fieldset id="categories">
+            <legend>Choisir la catégorie</legend>
+        </fieldset>
+        <fieldset>
+            <legend>Composition</legend>
+            <select name="ingredient"  id="select-ingredients">
+                <option>Sélectionner un ingrédient/plat</option>
+            </select>
+            <div><label>Poids <input type="text" name="poids"> en grammes</label></div>
+            <button type="submit">Ajouter</button><button type="reset" id="reset">Recommencer</button>
+        </fieldset>
+    </form>
+    <section>
+        <h2>Mon repas</h2>
+        <div id="compteur"></div>
+
+    </section>
+</div>
+
+<script>
+"use strict";
+    init();
+</script>
+</body>
+</html>
